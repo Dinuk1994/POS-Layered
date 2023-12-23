@@ -2,6 +2,7 @@ package doa.custom.impl;
 
 import doa.custom.CustomerDao;
 import db.DBConnection;
+import doa.util.CrudUtil;
 import dto.CustomerDto;
 import entity.Customer;
 
@@ -22,35 +23,38 @@ public class CustomerDaoImpl implements CustomerDao {
     @Override
     public boolean save(Customer entity) throws SQLException, ClassNotFoundException {
         String sql="INSERT INTO Customer Values(?,?,?,?)";
-        PreparedStatement pstm = DBConnection.getInstance().getConnection().prepareStatement(sql);
-        pstm.setString(1,entity.getId());
-        pstm.setString(2, entity.getName());
-        pstm.setString(3,entity.getAddress());
-        pstm.setDouble(4,entity.getSalary());
-        int result = pstm.executeUpdate();
-
-        return result>0 ;
+//        PreparedStatement pstm = DBConnection.getInstance().getConnection().prepareStatement(sql);
+//        pstm.setString(1,entity.getId());
+//        pstm.setString(2, entity.getName());
+//        pstm.setString(3,entity.getAddress());
+//        pstm.setDouble(4,entity.getSalary());
+//        int result = pstm.executeUpdate();
+//
+//        return result>0 ;
+        return CrudUtil.execute(sql,entity.getId(),entity.getName(),entity.getAddress(),entity.getSalary());
     }
 
     @Override
     public boolean update(Customer entity) throws SQLException, ClassNotFoundException {
         String sql="UPDATE Customer SET name=?,address=?,salary=? WHERE id=?";
-        PreparedStatement pstm = DBConnection.getInstance().getConnection().prepareStatement(sql);
-        pstm.setString(1,entity.getName());
-        pstm.setString(2,entity.getAddress());
-        pstm.setDouble(3,entity.getSalary());
-        pstm.setString(4,entity.getId());
-        int result = pstm.executeUpdate();
-        return result>0;
+//        PreparedStatement pstm = DBConnection.getInstance().getConnection().prepareStatement(sql);
+//        pstm.setString(1,entity.getName());
+//        pstm.setString(2,entity.getAddress());
+//        pstm.setDouble(3,entity.getSalary());
+//        pstm.setString(4,entity.getId());
+//        int result = pstm.executeUpdate();
+//        return result>0;
+        return CrudUtil.execute(sql,entity.getName(),entity.getAddress(),entity.getSalary(),entity.getId());
     }
 
     @Override
     public boolean delete(String id) throws SQLException, ClassNotFoundException {
         String sql="DELETE FROM customer WHERE id=?";
-        PreparedStatement pstm = DBConnection.getInstance().getConnection().prepareStatement(sql);
-        pstm.setString(1,id);
-        int result = pstm.executeUpdate();
-        return result>0;
+//        PreparedStatement pstm = DBConnection.getInstance().getConnection().prepareStatement(sql);
+//        pstm.setString(1,id);
+//        int result = pstm.executeUpdate();
+//        return result>0;
+        return CrudUtil.execute(sql,id);
     }
 
     @Override
@@ -58,8 +62,8 @@ public class CustomerDaoImpl implements CustomerDao {
         List<Customer> list = new ArrayList<>();
         String sql="SELECT * FROM Customer";
 
-        PreparedStatement pstm = DBConnection.getInstance().getConnection().prepareStatement(sql);
-        ResultSet resultSet = pstm.executeQuery();
+    //    PreparedStatement pstm = DBConnection.getInstance().getConnection().prepareStatement(sql);
+        ResultSet resultSet = CrudUtil.execute(sql);
         while (resultSet.next()){
             Customer c =new Customer(
                     resultSet.getString(1),

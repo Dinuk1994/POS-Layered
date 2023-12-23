@@ -1,5 +1,7 @@
 package controller;
 
+import bo.custom.CustomerBo;
+import bo.custom.impl.CustomerBoImpl;
 import doa.custom.CustomerDao;
 import doa.custom.ItemDao;
 import doa.custom.OrderDao;
@@ -57,7 +59,7 @@ public class PlaceOrderFormController {
     private List<CustomerDto> customers;
     private List<ItemDto> items;
 
-    CustomerDao customerDao =new CustomerDaoImpl();
+    CustomerBo<CustomerDto> customerBo = new CustomerBoImpl();
     ItemDao itemDao =new ItemDaoImpl();
     OrderDao orderDao =new OrderDaoImpl();
 
@@ -108,7 +110,7 @@ public class PlaceOrderFormController {
 
     private void loadCustomerIds() {
         try {
-            customers= customerDao.allCustomers();
+            customers= customerBo.allCustomers();
             ObservableList list = FXCollections.observableArrayList();
             for (CustomerDto dto:customers) {
                 list.add(dto.getId());
