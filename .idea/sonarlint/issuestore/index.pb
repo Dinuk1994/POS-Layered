@@ -78,3 +78,11 @@ P
  src/main/java/doa/ItemModel.java,b\6\b6e542a7e3cd034a2e24b939f8498d5ab273b058
 T
 $src/main/java/doa/CustomerModel.java,2\1\214eaf073e2a14f9c1d922c1c4d9ee2533d02e1c
+R
+"src/main/java/entity/Customer.java,f\1\f14bad5e68bdfef4c489ba84a4d9c620bc6cb0f1
+N
+src/main/java/entity/Item.java,e\b\ebc4e4f150c5bb35020e5b9eb0c7b226c08ed0b0
+P
+ src/main/java/entity/Orders.java,4\8\48211ba3dd7e8b79fb874d28da2202f2c0a2a141
+V
+&src/main/java/entity/OrderDetails.java,f\4\f47589a5f6844451df09572a3f27967cc901e090
