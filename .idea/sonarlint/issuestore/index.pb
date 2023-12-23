@@ -178,3 +178,13 @@ _
 /src/main/java/doa/custom/impl/OrderDaoImpl.java,a\4\a45383b8f5fffbe3e5e90c29036675780ffa4d7d
 f
 6src/main/java/doa/custom/impl/OrderDetailsDaoImpl.java,2\6\2647a9d07e73c8c02228c7bc9e9d6c30ec152e67
+V
+&src/main/java/doa/custom/Superdao.java,5\9\59b8253fad2ce526e607211bded82a5f6d2a9d89
+O
+src/main/java/doa/Superdao.java,f\2\f26ec8903e924825ca0a7c3ddafa5d6fda4cdd5f
+M
+src/main/java/bo/SuperBo.java,6\9\69fab5e928f2a1d545d917bdc79a71b4a4e756b3
+W
+'src/main/java/bo/custom/CustomerBo.java,b\a\ba3778c7e27590033ee81d064dd4468aa33eda6b
+`
+0src/main/java/bo/custom/impl/CustomerBoImpl.java,1\a\1a654b3282b021ba122a376474fac2d6aba60198

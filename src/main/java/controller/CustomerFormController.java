@@ -1,11 +1,14 @@
 package controller;
 
+import bo.custom.CustomerBo;
+import bo.custom.impl.CustomerBoImpl;
 import doa.custom.CustomerDao;
 import doa.custom.impl.CustomerDaoImpl;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import dto.CustomerDto;
 import dto.tm.CustomerTm;
+import entity.Customer;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -64,7 +67,7 @@ public class CustomerFormController {
     @FXML
     private TableColumn colOption;
 
-    private CustomerDao customerDao =new CustomerDaoImpl();
+    private CustomerBo<CustomerDto> customerBo = new CustomerBoImpl();
 
     public void initialize(){
         calculateTime();
@@ -101,7 +104,7 @@ public class CustomerFormController {
         ObservableList<CustomerTm> tmList = FXCollections.observableArrayList();
 
         try {
-            List<CustomerDto> dtoList = customerDao.allCustomers();
+            List<CustomerDto> dtoList = customerBo.allCustomers();
             for (CustomerDto dto:dtoList) {
                 JFXButton btn=new JFXButton("Delete");
                 btn.setStyle("-fx-background-color: #EF6262;");
@@ -129,7 +132,7 @@ public class CustomerFormController {
 
     private void deleteCustomer(String id) {
         try {
-            boolean isDelete = customerDao.isDeleteCustomer(id);
+            boolean isDelete = customerBo.deleteCustomer(id);
             if (isDelete){
                 new Alert(Alert.AlertType.INFORMATION,"Customer Deleted!").show();
                 loadCustomerTable();
@@ -147,7 +150,7 @@ public class CustomerFormController {
     public void saveButtonOnAction(javafx.event.ActionEvent actionEvent) {
         try {
             CustomerDto c=new CustomerDto(txtId.getText(),txtName.getText(),txtAddress.getText(),Double.parseDouble(txtSalary.getText()));
-            boolean isSaved = customerDao.isSavedCustomer(c);
+            boolean isSaved = customerBo.saveCustomer(c);
             if (isSaved){
                 new Alert(Alert.AlertType.INFORMATION,"Customer Saved!").show();
                 loadCustomerTable();
@@ -163,7 +166,7 @@ public class CustomerFormController {
     public void updateButtonOnAction(javafx.event.ActionEvent actionEvent) {
         try {
             CustomerDto c=new CustomerDto(txtId.getText(),txtName.getText(),txtAddress.getText(),Double.parseDouble(txtSalary.getText()));
-            boolean isUpdate = customerDao.isUpdatedCustomer(c);
+            boolean isUpdate = customerBo.updateCustomer(c);
             if (isUpdate){
                 new Alert(Alert.AlertType.INFORMATION,"Customer Updated!").show();
                 loadCustomerTable();
