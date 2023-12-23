@@ -1,7 +1,7 @@
 package controller;
 
-import doa.ItemModel;
-import doa.impl.ItemModelImpl;
+import doa.custom.ItemDao;
+import doa.custom.impl.ItemDaoImpl;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTreeTableView;
@@ -72,7 +72,7 @@ public class ItemFormController {
     @FXML
     private TreeTableColumn colOption;
 
-    public ItemModel itemModel = new ItemModelImpl();
+    public ItemDao itemDao = new ItemDaoImpl();
 
     public void initialize(){
         calculateTime();
@@ -112,7 +112,7 @@ public class ItemFormController {
         ObservableList<ItemTm> tmList = FXCollections.observableArrayList();
 
         try {
-            List<ItemDto> itemList = itemModel.allItems();
+            List<ItemDto> itemList = itemDao.allItems();
             for (ItemDto dto:itemList) {
                 JFXButton btn=new JFXButton("Delete");
                 btn.setStyle("-fx-background-color: #EF6262;");
@@ -144,7 +144,7 @@ public class ItemFormController {
 
     private void deleteItem(String code) {
         try {
-            boolean isDelete = itemModel.isDeleteItem(code);
+            boolean isDelete = itemDao.isDeleteItem(code);
             if (isDelete){
                 new Alert(Alert.AlertType.INFORMATION,"Customer Deleted!").show();
                 loadItemTable();
@@ -165,7 +165,7 @@ public class ItemFormController {
 
         try {
             ItemDto dto=new ItemDto(txtCode.getText(),txtDesc.getText(),Integer.parseInt(txtQty.getText()),Double.parseDouble(txtPrice.getText()));
-            boolean isSaved = itemModel.isSavedItem(dto);
+            boolean isSaved = itemDao.isSavedItem(dto);
             if (isSaved){
                 new Alert(Alert.AlertType.INFORMATION,"Item Saved!").show();
                 loadItemTable();
@@ -181,7 +181,7 @@ public class ItemFormController {
     public void updateButtonOnAction(javafx.event.ActionEvent actionEvent) {
         try {
             ItemDto item=new ItemDto(txtCode.getText(),txtDesc.getText(),Integer.parseInt(txtQty.getText()),Double.parseDouble(txtPrice.getText()));
-            boolean isUpdate = itemModel.isUpdatedItem(item);
+            boolean isUpdate = itemDao.isUpdatedItem(item);
             if (isUpdate){
                 new Alert(Alert.AlertType.INFORMATION,"Item Updated").show();
                 loadItemTable();

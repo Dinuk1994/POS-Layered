@@ -1,11 +1,11 @@
 package controller;
 
-import doa.CustomerModel;
-import doa.ItemModel;
-import doa.OrderModel;
-import doa.impl.CustomerModelImpl;
-import doa.impl.ItemModelImpl;
-import doa.impl.OrderModelImpl;
+import doa.custom.CustomerDao;
+import doa.custom.ItemDao;
+import doa.custom.OrderDao;
+import doa.custom.impl.CustomerDaoImpl;
+import doa.custom.impl.ItemDaoImpl;
+import doa.custom.impl.OrderDaoImpl;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import dto.CustomerDto;
@@ -57,9 +57,9 @@ public class PlaceOrderFormController {
     private List<CustomerDto> customers;
     private List<ItemDto> items;
 
-    CustomerModel customerModel=new CustomerModelImpl();
-    ItemModel itemModel=new ItemModelImpl();
-    OrderModel orderModel=new OrderModelImpl();
+    CustomerDao customerDao =new CustomerDaoImpl();
+    ItemDao itemDao =new ItemDaoImpl();
+    OrderDao orderDao =new OrderDaoImpl();
 
     ObservableList<OrderTm> orderList = FXCollections.observableArrayList();
 
@@ -108,7 +108,7 @@ public class PlaceOrderFormController {
 
     private void loadCustomerIds() {
         try {
-            customers=customerModel.allCustomers();
+            customers= customerDao.allCustomers();
             ObservableList list = FXCollections.observableArrayList();
             for (CustomerDto dto:customers) {
                 list.add(dto.getId());
@@ -124,7 +124,7 @@ public class PlaceOrderFormController {
 
     private void loadItemCodes() {
         try {
-            items=itemModel.allItems();
+            items= itemDao.allItems();
             ObservableList list = FXCollections.observableArrayList();
             for (ItemDto dto:items) {
                 list.add(dto.getCode());
@@ -191,7 +191,7 @@ public class PlaceOrderFormController {
 
     public void generateID()  {
         try {
-            OrderDto dto= orderModel.lastOrder();
+            OrderDto dto= orderDao.lastOrder();
             if (dto!=null){
                 String id= dto.getId();
                 int num=Integer.parseInt(id.split("[D]")[1]);
@@ -224,7 +224,7 @@ public class PlaceOrderFormController {
         if (!orderList.isEmpty()){
             boolean saved=false;
             try {
-                saved = orderModel.isSaved(new OrderDto(
+                saved = orderDao.isSaved(new OrderDto(
                         lblOrderId.getText(),
                         LocalDateTime.now().format(DateTimeFormatter.ofPattern("YYYY-MM-dd")).toString(),
                         cmbId.getValue().toString(),

@@ -1,7 +1,7 @@
 package controller;
 
-import doa.CustomerModel;
-import doa.impl.CustomerModelImpl;
+import doa.custom.CustomerDao;
+import doa.custom.impl.CustomerDaoImpl;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import dto.CustomerDto;
@@ -64,7 +64,7 @@ public class CustomerFormController {
     @FXML
     private TableColumn colOption;
 
-    private CustomerModel customerModel=new CustomerModelImpl();
+    private CustomerDao customerDao =new CustomerDaoImpl();
 
     public void initialize(){
         calculateTime();
@@ -101,7 +101,7 @@ public class CustomerFormController {
         ObservableList<CustomerTm> tmList = FXCollections.observableArrayList();
 
         try {
-            List<CustomerDto> dtoList = customerModel.allCustomers();
+            List<CustomerDto> dtoList = customerDao.allCustomers();
             for (CustomerDto dto:dtoList) {
                 JFXButton btn=new JFXButton("Delete");
                 btn.setStyle("-fx-background-color: #EF6262;");
@@ -129,7 +129,7 @@ public class CustomerFormController {
 
     private void deleteCustomer(String id) {
         try {
-            boolean isDelete = customerModel.isDeleteCustomer(id);
+            boolean isDelete = customerDao.isDeleteCustomer(id);
             if (isDelete){
                 new Alert(Alert.AlertType.INFORMATION,"Customer Deleted!").show();
                 loadCustomerTable();
@@ -147,7 +147,7 @@ public class CustomerFormController {
     public void saveButtonOnAction(javafx.event.ActionEvent actionEvent) {
         try {
             CustomerDto c=new CustomerDto(txtId.getText(),txtName.getText(),txtAddress.getText(),Double.parseDouble(txtSalary.getText()));
-            boolean isSaved = customerModel.isSavedCustomer(c);
+            boolean isSaved = customerDao.isSavedCustomer(c);
             if (isSaved){
                 new Alert(Alert.AlertType.INFORMATION,"Customer Saved!").show();
                 loadCustomerTable();
@@ -163,7 +163,7 @@ public class CustomerFormController {
     public void updateButtonOnAction(javafx.event.ActionEvent actionEvent) {
         try {
             CustomerDto c=new CustomerDto(txtId.getText(),txtName.getText(),txtAddress.getText(),Double.parseDouble(txtSalary.getText()));
-            boolean isUpdate = customerModel.isUpdatedCustomer(c);
+            boolean isUpdate = customerDao.isUpdatedCustomer(c);
             if (isUpdate){
                 new Alert(Alert.AlertType.INFORMATION,"Customer Updated!").show();
                 loadCustomerTable();
