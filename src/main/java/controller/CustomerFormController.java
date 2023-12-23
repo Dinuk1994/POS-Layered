@@ -1,11 +1,13 @@
 package controller;
 
+import bo.BoFactory;
 import bo.custom.CustomerBo;
 import bo.custom.impl.CustomerBoImpl;
 import doa.custom.CustomerDao;
 import doa.custom.impl.CustomerDaoImpl;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import doa.util.BoType;
 import dto.CustomerDto;
 import dto.tm.CustomerTm;
 import entity.Customer;
@@ -67,7 +69,7 @@ public class CustomerFormController {
     @FXML
     private TableColumn colOption;
 
-    private CustomerBo<CustomerDto> customerBo = new CustomerBoImpl();
+    private CustomerBo customerBo = BoFactory.getInstance().getBo(BoType.CUSTOMER);
 
     public void initialize(){
         calculateTime();

@@ -59,7 +59,7 @@ public class PlaceOrderFormController {
     private List<CustomerDto> customers;
     private List<ItemDto> items;
 
-    CustomerBo<CustomerDto> customerBo = new CustomerBoImpl();
+    CustomerBo customerBo = new CustomerBoImpl();
     ItemDao itemDao =new ItemDaoImpl();
     OrderDao orderDao =new OrderDaoImpl();
 
