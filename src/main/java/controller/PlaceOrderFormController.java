@@ -1,11 +1,11 @@
 package controller;
 
-import Model.CustomerModel;
-import Model.ItemModel;
-import Model.OrderModel;
-import Model.impl.CustomerModelImpl;
-import Model.impl.ItemModelImpl;
-import Model.impl.OrderModelImpl;
+import doa.CustomerModel;
+import doa.ItemModel;
+import doa.OrderModel;
+import doa.impl.CustomerModelImpl;
+import doa.impl.ItemModelImpl;
+import doa.impl.OrderModelImpl;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import dto.CustomerDto;
