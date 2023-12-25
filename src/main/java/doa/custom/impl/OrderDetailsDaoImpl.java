@@ -17,8 +17,9 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
             PreparedStatement pstm = DBConnection.getInstance().getConnection().prepareStatement(sql);
             pstm.setString(1,dto.getOrderId());
             pstm.setString(2,dto.getCode());
-            pstm.setInt(3,dto.getQty());
             pstm.setDouble(4,dto.getUnitPrice());
+            pstm.setInt(3,dto.getQty());
+
 
             int result = pstm.executeUpdate();
             if (!(result>0)){

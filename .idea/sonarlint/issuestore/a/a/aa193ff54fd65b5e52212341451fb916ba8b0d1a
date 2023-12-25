@@ -29,3 +29,11 @@ I
 java:S1602z",Remove useless curly braces around statement(λΉ¬8Δη…ΐΙ1
 U
 java:S1172Ε"2Remove this unused method parameter "actionEvent".(Ναε‘ωÿÿÿÿ8Λη…ΐΙ1
+\
+java:S1128":Remove this unused import 'bo.custom.impl.CustomerBoImpl'.(–Χ³€ÿÿÿÿÿ8άνί•Κ1
+P
+java:S1128"3Remove this unused import 'doa.custom.CustomerDao'.(„“’„8άνί•Κ1
+Y
+java:S1128"<Remove this unused import 'doa.custom.impl.CustomerDaoImpl'.(ΡΥÒϊ8άνί•Κ1
+I
+java:S1128",Remove this unused import 'entity.Customer'.(ιώ²Ά8άνί•Κ1

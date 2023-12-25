@@ -2,6 +2,6 @@
 e
 java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ìû—
 
-java:S4165"lRemove this useless assignment; "isDetailsSaved" already holds the assigned value along all execution paths.(’ê-
+java:S4165"lRemove this useless assignment; "isDetailsSaved" already holds the assigned value along all execution paths.(’ê-
 D
-java:S1940")Use the opposite operator ("<=") instead.(¾ë»ˆùÿÿÿÿ
+java:S1940")Use the opposite operator ("<=") instead.(¾ë»ˆùÿÿÿÿ

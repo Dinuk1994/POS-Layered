@@ -1,5 +1,6 @@
 package controller;
 
+import bo.BoFactory;
 import bo.custom.ItemBo;
 import bo.custom.impl.ItemBoImpl;
 import doa.custom.ItemDao;
@@ -9,6 +10,7 @@ import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import doa.util.BoType;
 import dto.ItemDto;
 import dto.tm.ItemTm;
 import javafx.animation.Animation;
@@ -74,7 +76,7 @@ public class ItemFormController {
     @FXML
     private TreeTableColumn colOption;
 
-    public ItemBo<ItemDto> itemBo=new ItemBoImpl();
+    public ItemBo<ItemDto> itemBo= BoFactory.getInstance().getBo(BoType.ITEM);
 
     public void initialize(){
         calculateTime();
