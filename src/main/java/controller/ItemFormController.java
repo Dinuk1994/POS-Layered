@@ -1,5 +1,7 @@
 package controller;
 
+import bo.custom.ItemBo;
+import bo.custom.impl.ItemBoImpl;
 import doa.custom.ItemDao;
 import doa.custom.impl.ItemDaoImpl;
 import com.jfoenix.controls.JFXButton;
@@ -72,7 +74,7 @@ public class ItemFormController {
     @FXML
     private TreeTableColumn colOption;
 
-    public ItemDao itemDao = new ItemDaoImpl();
+    public ItemBo<ItemDto> itemBo=new ItemBoImpl();
 
     public void initialize(){
         calculateTime();
@@ -112,22 +114,25 @@ public class ItemFormController {
         ObservableList<ItemTm> tmList = FXCollections.observableArrayList();
 
         try {
-            List<ItemDto> itemList = itemDao.allItems();
-            for (ItemDto dto:itemList) {
-                JFXButton btn=new JFXButton("Delete");
-                btn.setStyle("-fx-background-color: #EF6262;");
-                ItemTm item=new ItemTm(
-                        dto.getCode(),
-                        dto.getDesc(),
-                        dto.getUnitPrice(),
-                        dto.getQty(),
-                        btn
-                );
-                btn.setOnAction(actionEvent -> {
-                    deleteItem(item.getCode());
-                });
-                tmList.add(item);
+            List<ItemDto> itemList = itemBo.allItems();
+            if (itemList!=null){
+                for (ItemDto dto:itemList) {
+                    JFXButton btn=new JFXButton("Delete");
+                    btn.setStyle("-fx-background-color: #EF6262;");
+                    ItemTm item=new ItemTm(
+                            dto.getCode(),
+                            dto.getDesc(),
+                            dto.getUnitPrice(),
+                            dto.getQty(),
+                            btn
+                    );
+                    btn.setOnAction(actionEvent -> {
+                        deleteItem(item.getCode());
+                    });
+                    tmList.add(item);
 
+
+                }
                 RecursiveTreeItem<ItemTm> treeItem = new RecursiveTreeItem<>(tmList, RecursiveTreeObject::getChildren);
                 tblItem.setRoot(treeItem);
                 tblItem.setShowRoot(false);
@@ -144,7 +149,7 @@ public class ItemFormController {
 
     private void deleteItem(String code) {
         try {
-            boolean isDelete = itemDao.isDeleteItem(code);
+            boolean isDelete = itemBo.deleteItem(code);
             if (isDelete){
                 new Alert(Alert.AlertType.INFORMATION,"Customer Deleted!").show();
                 loadItemTable();
@@ -164,8 +169,8 @@ public class ItemFormController {
 
 
         try {
-            ItemDto dto=new ItemDto(txtCode.getText(),txtDesc.getText(),Integer.parseInt(txtQty.getText()),Double.parseDouble(txtPrice.getText()));
-            boolean isSaved = itemDao.isSavedItem(dto);
+            ItemDto dto=new ItemDto(txtCode.getText(),txtDesc.getText(),Double.parseDouble(txtPrice.getText()),Integer.parseInt(txtQty.getText()));
+            boolean isSaved = itemBo.saveItem(dto);
             if (isSaved){
                 new Alert(Alert.AlertType.INFORMATION,"Item Saved!").show();
                 loadItemTable();
@@ -180,8 +185,8 @@ public class ItemFormController {
     @FXML
     public void updateButtonOnAction(javafx.event.ActionEvent actionEvent) {
         try {
-            ItemDto item=new ItemDto(txtCode.getText(),txtDesc.getText(),Integer.parseInt(txtQty.getText()),Double.parseDouble(txtPrice.getText()));
-            boolean isUpdate = itemDao.isUpdatedItem(item);
+            ItemDto item=new ItemDto(txtCode.getText(),txtDesc.getText(),Double.parseDouble(txtPrice.getText()),Integer.parseInt(txtQty.getText()));
+            boolean isUpdate = itemBo.updateItem(item);
             if (isUpdate){
                 new Alert(Alert.AlertType.INFORMATION,"Item Updated").show();
                 loadItemTable();

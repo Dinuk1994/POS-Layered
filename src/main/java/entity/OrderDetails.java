@@ -7,9 +7,10 @@ import lombok.*;
 @Setter
 @Getter
 @ToString
-public class OrderDetails {
+public class      OrderDetails {
     private String orderId;
     private String itemCode;
-    private int qty;
     private double unitPrice;
+    private int qty;
+
 }

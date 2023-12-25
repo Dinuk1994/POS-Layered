@@ -1,7 +1,9 @@
 package controller;
 
 import bo.custom.CustomerBo;
+import bo.custom.ItemBo;
 import bo.custom.impl.CustomerBoImpl;
+import bo.custom.impl.ItemBoImpl;
 import doa.custom.CustomerDao;
 import doa.custom.ItemDao;
 import doa.custom.OrderDao;
@@ -60,7 +62,7 @@ public class PlaceOrderFormController {
     private List<ItemDto> items;
 
     CustomerBo customerBo = new CustomerBoImpl();
-    ItemDao itemDao =new ItemDaoImpl();
+    ItemBo<ItemDto> itemBo =new ItemBoImpl();
     OrderDao orderDao =new OrderDaoImpl();
 
     ObservableList<OrderTm> orderList = FXCollections.observableArrayList();
@@ -126,7 +128,7 @@ public class PlaceOrderFormController {
 
     private void loadItemCodes() {
         try {
-            items= itemDao.allItems();
+            items= itemBo.allItems();
             ObservableList list = FXCollections.observableArrayList();
             for (ItemDto dto:items) {
                 list.add(dto.getCode());
@@ -218,7 +220,7 @@ public class PlaceOrderFormController {
                     lblOrderId.getText(),
                     tm.getCode(),
                     tm.getQty(),
-                    tm.getAmount()/tm.getQty()
+                    (int)tm.getAmount()/tm.getQty()
             );
             list.add(orderDetailsDto);
         }
