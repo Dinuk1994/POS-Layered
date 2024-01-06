@@ -328,8 +328,6 @@ G.idea/sonarlint/issuestore/1/f/1f47b0c00fec3a8eb30d8c44bf9bdff161633164,4\9\49
 Q.idea/sonarlint/securityhotspotstore/1/f/1f47b0c00fec3a8eb30d8c44bf9bdff161633164,e\2\e22a14e13ed0a6aea01e8c0a1ea52bc8c503926a
 w
 G.idea/sonarlint/issuestore/3/4/34cccfc64908438bf9635612d2d08fe423e9d2ea,8\3\83559e3e77b56e4a6f1397d5cde7a986f0822744
-X
-(src/main/java/bo/custom/impl/ItemBo.java,a\d\adfee19a65387d78130d83bdd1559cab13de59e3
 S
 #src/main/java/bo/custom/ItemBo.java,5\5\550c2e395f13d384aec20a9ebca0bc483a9313ae
 \

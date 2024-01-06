@@ -5,16 +5,6 @@ h	java:S112’"FDefine and throw a dedicated exception instead of using a gener
 h	java:S112£"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ç…ÀÉ1
 h	java:S112³"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ç…ÀÉ1
 h	java:S112Ë"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ç…ÀÉ1
-Q
-java:S3740:"/Provide the parametrized type for this generic.(ºšãÿıÿÿÿÿ8ç…ÀÉ1
-L
-java:S3740="/Provide the parametrized type for this generic.(Œà•®8ç…ÀÉ1
-L
-java:S3740@"/Provide the parametrized type for this generic.(´°æ¸8ç…ÀÉ1
-Q
-java:S3740C"/Provide the parametrized type for this generic.(ù‚©·üÿÿÿÿ8ç…ÀÉ1
-L
-java:S3740F"/Provide the parametrized type for this generic.(ÚÊØ˜8ç…ÀÉ1
 t
 java:S1192"VDefine a constant instead of duplicating this literal "Something Went Wrong!" 3 times.( œ²8‚ç…ÀÉ1
 n
@@ -29,11 +19,3 @@ I
 java:S1602z",Remove useless curly braces around statement(ë¹¬8Äç…ÀÉ1
 U
 java:S1172Å"2Remove this unused method parameter "actionEvent".(Íáå‘ùÿÿÿÿ8Ëç…ÀÉ1
-\
-java:S1128":Remove this unused import 'bo.custom.impl.CustomerBoImpl'.(–×³€ÿÿÿÿÿ8Üíß•Ê1
-P
-java:S1128"3Remove this unused import 'doa.custom.CustomerDao'.(„“’„8Üíß•Ê1
-Y
-java:S1128"<Remove this unused import 'doa.custom.impl.CustomerDaoImpl'.(ÑÕÒú8Üíß•Ê1
-I
-java:S1128",Remove this unused import 'entity.Customer'.(éş²¢8Üíß•Ê1

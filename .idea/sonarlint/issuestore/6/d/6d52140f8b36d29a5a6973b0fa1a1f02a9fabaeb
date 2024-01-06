@@ -1,3 +1,11 @@
 
 g	java:S116"RRename this field "Address" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜ê‹©
 f	java:S116"QRename this field "Salary" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è£ë®
+C
+java:S1068"&Remove this unused "id" private field.(Ê®ÁÜ8œ°¶ÇŒ1
+E
+java:S1068"(Remove this unused "name" private field.(êÀ•º8œ°¶ÇŒ1
+H
+java:S1068"+Remove this unused "Address" private field.(˜ê‹©8–°¶ÇŒ1
+G
+java:S1068"*Remove this unused "Salary" private field.(è£ë®8–°¶ÇŒ1

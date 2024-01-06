@@ -6,16 +6,6 @@ h	java:S112·"FDefine and throw a dedicated exception instead of using a gener
 h	java:S112Ç"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8š¾˜–Ê1
 h	java:S112É"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8š¾˜–Ê1
 h	java:S112Ö"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8š¾˜–Ê1
-Q
-java:S3740A"/Provide the parametrized type for this generic.(íı’­úÿÿÿÿ8š¾˜–Ê1
-Q
-java:S3740D"/Provide the parametrized type for this generic.(Ú¢éÕùÿÿÿÿ8š¾˜–Ê1
-Q
-java:S3740G"/Provide the parametrized type for this generic.(àëç…úÿÿÿÿ8š¾˜–Ê1
-Q
-java:S3740J"/Provide the parametrized type for this generic.(ıø–»şÿÿÿÿ8š¾˜–Ê1
-Q
-java:S3740M"/Provide the parametrized type for this generic.(Èâ–úÿÿÿÿ8š¾˜–Ê1
 t
 java:S1192Ÿ"VDefine a constant instead of duplicating this literal "Something Went Wrong!" 3 times.( œ²8œ¾˜–Ê1
 p
@@ -34,9 +24,3 @@ P
 java:S1172Ï"2Remove this unused method parameter "actionEvent".(ôí€²8İ¾˜–Ê1
 P
 java:S1172Ú"2Remove this unused method parameter "actionEvent".(Ñ®ìŞ8æ¾˜–Ê1
-S
-java:S1128"6Remove this unused import 'bo.custom.impl.ItemBoImpl'.(İˆ­8ç¾˜–Ê1
-Q
-java:S1128"/Remove this unused import 'doa.custom.ItemDao'.(±Æˆüÿÿÿÿ8ç¾˜–Ê1
-U
-java:S1128"8Remove this unused import 'doa.custom.impl.ItemDaoImpl'.(×ı“8è¾˜–Ê1
